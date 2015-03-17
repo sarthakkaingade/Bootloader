@@ -47,7 +47,7 @@
  *  element[0] maps to requested index 1
  */
 static const char *usb_strings[] = { 
-	"3D Robotics", /* Maps to Index 1 Index */
+	"NavStik", /* Maps to Index 1 Index */
 	USBDEVICESTRING,
 	"0",
 };
