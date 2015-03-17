@@ -50,6 +50,27 @@ static struct {
 #define OTP_SIZE			512
 #define UDID_START		0x1FFF7A10
 
+#ifdef BOARD_NAVSTIK
+# define BOARD_TYPE                    1
+# define BOARD_FLASH_SECTORS           11
+# define BOARD_FLASH_SIZE              (1024 * 1024)
+
+# define OSC_FREQ                      24
+
+# define BOARD_PIN_LED_ACTIVITY                GPIO4
+# define BOARD_PIN_LED_BOOTLOADER      GPIO5
+# define BOARD_PORT_LEDS               GPIOC
+# define BOARD_CLOCK_LEDS              RCC_AHB1ENR_IOPCEN
+# define BOARD_LED_ON                  gpio_clear
+# define BOARD_LED_OFF                 gpio_set
+
+# define BOARD_FORCE_BL_PIN            GPIO10
+# define BOARD_FORCE_BL_PORT           GPIOA
+# define BOARD_FORCE_BL_CLOCK_REGISTER RCC_AHB1ENR
+# define BOARD_FORCE_BL_CLOCK_BIT      RCC_AHB1ENR_IOPAEN
+# define BOARD_FORCE_BL_PULL           GPIO_PUPD_PULLUP
+# define BOARD_FORCE_BL_STATE          0
+#endif
 
 #ifdef BOARD_FMU
 # define BOARD_TYPE			5

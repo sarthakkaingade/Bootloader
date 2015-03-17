@@ -2,7 +2,7 @@
 # PX4 bootloader build rules for STM32F4 targets.
 #
 
-PRODUCT		 = px4$(TARGET)_bl
+PRODUCT		 = $(TARGET)_bl
 
 OPENOCD		?= openocd
 
