@@ -35,7 +35,7 @@ export COMMON_SRCS	 = bl.c
 #
 # Bootloaders to build
 #
-TARGETS			 = px4fmu_bl px4fmuv2_bl px4flow_bl stm32f4discovery_bl px4io_bl aerocore_bl mavstation_bl
+TARGETS			 = px4fmu_bl px4fmuv2_bl px4flow_bl stm32f4discovery_bl px4io_bl aerocore_bl mavstation_bl navstik_bl
 
 # px4io_bl px4flow_bl
 
@@ -67,6 +67,9 @@ px4flow_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
 
 aerocore_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
 	make -f Makefile.f4 TARGET=aerocore INTERFACE=USB BOARD=AEROCORE USBDEVICESTRING="\\\"Gumstix BL AEROCORE\\\"" USBPRODUCTID="0x1001"
+
+navstik_bl: $(MAKEFILE_LIST) $(LIBOPENCM3)
+	make -f Makefile.f4 TARGET=navstik INTERFACE=USB BOARD=NAVSTIK USBDEVICESTRING="\\\"NAVSTIK BL NXT\\\"" USBPRODUCTID="0x1012" EXTRAFLAGS="-DBOOT_DELAY_ADDRESS=0x000001a0"
 
 # Default bootloader delay is *very* short, just long enough to catch
 # the board for recovery but not so long as to make restarting after a 
